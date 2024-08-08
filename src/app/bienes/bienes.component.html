@@ -1,0 +1,64 @@
+<div class="container">
+    <h2>Lista de Bienes</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Código</th>
+          <th>Artículo</th>
+          <th>Cantidad</th>
+          <th>Descripción</th>
+          <th>Estado</th>
+          <th>Riesgo</th>
+          <th>Fecha Ingreso</th>
+          <th>Fecha Modificación</th>
+          <th>Vr Unitario 2023</th>
+          <th>Vr Asegurado</th>
+          <th>Porcentaje IVA</th>
+          <th>IVA Variable</th>
+          <th>Vr Asegurable</th>
+          <th>Tasa General</th>
+          <th>Prima</th>
+          <th>Tasa IVA</th>
+          <th>Prima IVA Anual</th>
+          <th>Prima Anual Total</th>
+          <th>Beneficiario Adicional</th>
+          <th>Número Endoso</th>
+          <th>Valor Endoso</th>
+          <th>Vigencia Endoso</th>
+          <th>Banco</th>
+          <th>NIT Banco</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bien of bienes">
+          <td>{{ bien.idBien }}</td>
+          <td>{{ bien.codigo }}</td>
+          <td>{{ bien.articuloBienes }}</td>
+          <td>{{ bien.cantidad }}</td>
+          <td>{{ bien.descripcionArticulo }}</td>
+          <td>{{ bien.estado }}</td>
+          <td>{{ bien.riesgo }}</td>
+          <td>{{ bien.fechaIngreso }}</td>
+          <td>{{ bien.fechaModificacion }}</td>
+          <td>{{ bien.vrUnitario2023 }}</td>
+          <td>{{ bien.vrAsegurado }}</td>
+          <td>{{ bien.porcentajeIva }}</td>
+          <td>{{ bien.ivaVariable }}</td>
+          <td>{{ bien.vrAsegurable }}</td>
+          <td>{{ bien.tasaGeneral }}</td>
+          <td>{{ bien.prima }}</td>
+          <td>{{ bien.tasaIva }}</td>
+          <td>{{ bien.primaIvaAnual }}</td>
+          <td>{{ bien.primaAnualTotal }}</td>
+          <td>{{ bien.beneficiarioAdicional }}</td>
+          <td>{{ bien.numeroEndoso }}</td>
+          <td>{{ bien.valorEndoso }}</td>
+          <td>{{ bien.vigenciaEndoso }}</td>
+          <td>{{ bien.banco }}</td>
+          <td>{{ bien.nitBanco }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

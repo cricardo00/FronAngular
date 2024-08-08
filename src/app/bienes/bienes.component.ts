@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { BienesService, Bien } from '../servicios/bienes.service';
+import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-bienes',
   templateUrl: './bienes.component.html',
-  styleUrls: ['./bienes.component.css']
+  standalone: true,
+  imports: [CommonModule],
+  styleUrls: ['./bienes.component.scss']
 })
 export class BienesComponent implements OnInit {
 

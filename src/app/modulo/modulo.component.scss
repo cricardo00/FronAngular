@@ -1,0 +1,53 @@
+.modulo {
+  display: flex;
+  background: rgba(0, 0, 0, 0.34) url('/assets/FONDO.webp') no-repeat center center / cover; // Fondo combinado
+  background-color: rgba(0, 0, 0, 0.137);
+  position: fixed;
+  top: 60px; // Ajusta esto según la altura de tu header
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.main-content {
+  width: calc(100% - 350px); // 350px es el ancho de la barra lateral
+  padding: 2rem;
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  top: 60px; // Altura del encabezado
+  left: 350px; // Ancho de la barra lateral
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.info-cards {
+display: flex;
+flex-wrap: wrap;
+justify-content: left;
+margin-top: 20px;
+}
+
+.info-card {
+width: clamp(250px, 20%, 300px); // Tamaño ajustable para las tarjetas
+height: clamp(150px, 15%, 200px); // Tamaño ajustable para las tarjetas
+margin: 20px;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s, box-shadow 0.3s;
+cursor: pointer;
+color: white;
+}
+
+.info-card:hover {
+transform: scale(1.05);
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.info-card:nth-child(1) {
+background-color: #1E90FF;
+}
+

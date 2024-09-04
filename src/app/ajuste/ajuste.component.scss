@@ -1,0 +1,54 @@
+/* home.component.scss */
+.home {
+  .main-content {
+    margin-left: 250px; /* Ancho del sidebar, ajusta para alinearse con el sidebar */
+    padding: 20px;
+    background-color: #f4f4f4; /* Color de fondo opcional para distinguir del sidebar */
+    min-height: calc(100vh - 80px); /* Altura mínima para ocupar el resto de la ventana menos el header */
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+    margin-top: 80px; /* Ajusta este valor según la altura de tu header, asegurando que el contenido no esté oculto detrás del header */
+  }
+
+  .info-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+
+  .info-card {
+    width: calc(25% - 40px);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    color: white;
+  }
+
+  .info-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .info-card:nth-child(1) {
+    background-color: #1E90FF;
+  }
+
+  .info-card:nth-child(2) {
+    background-color: #32CD32;
+  }
+
+  .info-card:nth-child(3) {
+    background-color: #FFA500;
+  }
+
+  .info-card:nth-child(4) {
+    background-color: #FF4500;
+  }
+
+  .info-card:nth-child(5) {
+    background-color: #6A5ACD;
+  }
+}

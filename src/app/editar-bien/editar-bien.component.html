@@ -1,0 +1,164 @@
+<!-- src/app/editar-bien/editar-bien.component.html -->
+<div class="container">
+  <main class="main-content">
+    <h2 class="mb-4">Detalles del Bien</h2>
+    <!-- Mostrar el formulario solo si hay datos disponibles -->
+    <div *ngIf="bienes.length > 0; else noData" class="card p-3">
+      <!-- Usamos *ngFor para iterar sobre los bienes (en caso de múltiples registros) -->
+      <div *ngFor="let bien of bienes" class="row mb-3">
+        <!-- Formulario de edición -->
+        <form (ngSubmit)="onSubmit()" #editForm="ngForm">
+          <div class="col-md-6">
+            <!-- Campo ID (solo lectura) -->
+            <div class="mb-2">
+              <strong>ID:</strong>
+              <span>{{ bien.idBien }}</span>
+            </div>
+            <!-- Campo Código (solo lectura) -->
+            <div class="mb-2">
+              <strong>Código:</strong>
+              <span>{{ bien.codigo }}</span>
+            </div>
+            <!-- Campo Artículo con ngModel -->
+            <div class="mb-2">
+              <label for="articuloBienes">Artículo:</label>
+              <input type="text" id="articuloBienes" name="articuloBienes" [(ngModel)]="bien.articuloBienes" required class="form-control">
+            </div>
+            <!-- Campo Proceso con ngModel -->
+            <div class="mb-2">
+              <label for="procesoEstaciones">Proceso:</label>
+              <input type="text" id="procesoEstaciones" name="procesoEstaciones" [(ngModel)]="bien.procesoEstaciones" required class="form-control">
+            </div>
+            <!-- Campo Cantidad con ngModel -->
+            <div class="mb-2">
+              <label for="cantidad">Cantidad:</label>
+              <input type="number" id="cantidad" name="cantidad" [(ngModel)]="bien.cantidad" required class="form-control">
+            </div>
+            <!-- Campo Descripción Artículo con ngModel -->
+            <div class="mb-2">
+              <label for="descripcionArticulo">Descripción Artículo:</label>
+              <input type="text" id="descripcionArticulo" name="descripcionArticulo" [(ngModel)]="bien.descripcionArticulo" required class="form-control">
+            </div>
+            <!-- Campo Descripción Movimiento con ngModel -->
+            <div class="mb-2">
+              <label for="descripcionMovimiento">Descripción Movimiento:</label>
+              <input type="text" id="descripcionMovimiento" name="descripcionMovimiento" [(ngModel)]="bien.descripcionMovimiento" required class="form-control">
+            </div>
+            <!-- Campo Estado con ngModel -->
+            <div class="mb-2">
+              <label for="estado">Estado:</label>
+              <input type="text" id="estado" name="estado" [(ngModel)]="bien.estado" required class="form-control">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <!-- Campo Riesgo con ngModel -->
+            <div class="mb-2">
+              <label for="riesgo">Riesgo:</label>
+              <input type="text" id="riesgo" name="riesgo" [(ngModel)]="bien.riesgo" required class="form-control">
+            </div>
+            <!-- Campo Fecha Ingreso con ngModel -->
+            <div class="mb-2">
+              <label for="fechaIngreso">Fecha Ingreso:</label>
+              <input type="date" id="fechaIngreso" name="fechaIngreso" [(ngModel)]="bien.fechaIngreso" required class="form-control">
+            </div>
+            <!-- Campo Fecha Modificación con ngModel -->
+            <div class="mb-2">
+              <label for="fechaModificacion">Fecha Modificación:</label>
+              <input type="date" id="fechaModificacion" name="fechaModificacion" [(ngModel)]="bien.fechaModificacion" required class="form-control">
+            </div>
+            <!-- Campo Vr Unitario 2023 con ngModel -->
+            <div class="mb-2">
+              <label for="vrUnitario2023">Vr Unitario 2023:</label>
+              <input type="number" id="vrUnitario2023" name="vrUnitario2023" [(ngModel)]="bien.vrUnitario2023" required class="form-control">
+            </div>
+            <!-- Campo Vr Asegurado con ngModel -->
+            <div class="mb-2">
+              <label for="vrAsegurado">Vr Asegurado:</label>
+              <input type="number" id="vrAsegurado" name="vrAsegurado" [(ngModel)]="bien.vrAsegurado" required class="form-control">
+            </div>
+            <!-- Campo Porcentaje IVA con ngModel -->
+            <div class="mb-2">
+              <label for="porcentajeIva">Porcentaje IVA:</label>
+              <input type="number" id="porcentajeIva" name="porcentajeIva" [(ngModel)]="bien.porcentajeIva" required class="form-control">
+            </div>
+            <!-- Campo IVA Variable con ngModel -->
+            <div class="mb-2">
+              <label for="ivaVariable">IVA Variable:</label>
+              <input type="number" id="ivaVariable" name="ivaVariable" [(ngModel)]="bien.ivaVariable" required class="form-control">
+            </div>
+            <!-- Campo Vr Asegurable con ngModel -->
+            <div class="mb-2">
+              <label for="vrAsegurable">Vr Asegurable:</label>
+              <input type="number" id="vrAsegurable" name="vrAsegurable" [(ngModel)]="bien.vrAsegurable" required class="form-control">
+            </div>
+            <!-- Campo Tasa General con ngModel -->
+            <div class="mb-2">
+              <label for="tasaGeneral">Tasa General:</label>
+              <input type="number" id="tasaGeneral" name="tasaGeneral" [(ngModel)]="bien.tasaGeneral" required class="form-control">
+            </div>
+            <!-- Campo Prima con ngModel -->
+            <div class="mb-2">
+              <label for="prima">Prima:</label>
+              <input type="number" id="prima" name="prima" [(ngModel)]="bien.prima" required class="form-control">
+            </div>
+            <!-- Campo Tasa IVA con ngModel -->
+            <div class="mb-2">
+              <label for="tasaIva">Tasa IVA:</label>
+              <input type="number" id="tasaIva" name="tasaIva" [(ngModel)]="bien.tasaIva" required class="form-control">
+            </div>
+            <!-- Campo Prima IVA Anual con ngModel -->
+            <div class="mb-2">
+              <label for="primaIvaAnual">Prima IVA Anual:</label>
+              <input type="number" id="primaIvaAnual" name="primaIvaAnual" [(ngModel)]="bien.primaIvaAnual" required class="form-control">
+            </div>
+            <!-- Campo Prima Anual Total con ngModel -->
+            <div class="mb-2">
+              <label for="primaAnualTotal">Prima Anual Total:</label>
+              <input type="number" id="primaAnualTotal" name="primaAnualTotal" [(ngModel)]="bien.primaAnualTotal" required class="form-control">
+            </div>
+            <!-- Campo Beneficiario Adicional con ngModel -->
+            <div class="mb-2">
+              <label for="beneficiarioAdicional">Beneficiario Adicional:</label>
+              <input type="text" id="beneficiarioAdicional" name="beneficiarioAdicional" [(ngModel)]="bien.beneficiarioAdicional" required class="form-control">
+            </div>
+            <!-- Campo Número Endoso con ngModel -->
+            <div class="mb-2">
+              <label for="numeroEndoso">Número Endoso:</label>
+              <input type="text" id="numeroEndoso" name="numeroEndoso" [(ngModel)]="bien.numeroEndoso" required class="form-control">
+            </div>
+            <!-- Campo Valor Endoso con ngModel -->
+            <div class="mb-2">
+              <label for="valorEndoso">Valor Endoso:</label>
+              <input type="number" id="valorEndoso" name="valorEndoso" [(ngModel)]="bien.valorEndoso" required class="form-control">
+            </div>
+            <!-- Campo Vigencia Endoso con ngModel -->
+            <div class="mb-2">
+              <label for="vigenciaEndoso">Vigencia Endoso:</label>
+              <input type="text" id="vigenciaEndoso" name="vigenciaEndoso" [(ngModel)]="bien.vigenciaEndoso" required class="form-control">
+            </div>
+            <!-- Campo Banco con ngModel -->
+            <div class="mb-2">
+              <label for="banco">Banco:</label>
+              <input type="text" id="banco" name="banco" [(ngModel)]="bien.banco" required class="form-control">
+            </div>
+            <!-- Campo NIT Banco con ngModel -->
+            <div class="mb-2">
+              <label for="nitBanco">NIT Banco:</label>
+              <input type="text" id="nitBanco" name="nitBanco" [(ngModel)]="bien.nitBanco" required class="form-control">
+            </div>
+          </div>
+          <!-- Botón para guardar los cambios -->
+          <div class="col-md-12 mt-3">
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Mensaje de alerta en caso de no encontrar datos -->
+    <ng-template #noData>
+      <div class="alert alert-warning mt-4" role="alert">
+        No se encontraron detalles para el bien con código {{ codigo }}.
+      </div>
+    </ng-template>
+  </main>
+</div>

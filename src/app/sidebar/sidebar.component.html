@@ -1,0 +1,18 @@
+<!-- Archivo: sidebar.component.html -->
+<aside class="sidebar d-flex flex-column justify-content-between h-100" [class.collapsed]="isCollapsed">
+  <div class="d-flex justify-content-end mb-3">
+    <button (click)="toggleSidebar()" class="btn btn-sm btn-outline-secondary">
+      <mat-icon>{{ isCollapsed ? 'menu' : 'close' }}</mat-icon>
+    </button>
+  </div>
+  <nav class="nav flex-column">
+    <ul class="list-unstyled m-0 p-0">
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link d-flex align-items-start"><mat-icon>home</mat-icon><span class="nav-text ms-2">Inicio</span></a></li>
+      <li><a routerLink="/modulo" routerLinkActive="active" class="nav-link d-flex align-items-center"><mat-icon>view_module</mat-icon><span class="nav-text ms-2">Módulos</span></a></li>
+      <li><a routerLink="/ajustes" routerLinkActive="active" class="nav-link d-flex align-items-center"><mat-icon>settings</mat-icon><span class="nav-text ms-2">Ajustes</span></a></li>
+    </ul>
+  </nav>
+  <div class="mt-auto">
+    <a href="https://aurasseguros.com" target="_blank" class="nav-link d-flex align-items-center"><mat-icon>exit_to_app</mat-icon><span class="nav-text ms-2">Cierre de sesión</span></a>
+  </div>
+</aside>
